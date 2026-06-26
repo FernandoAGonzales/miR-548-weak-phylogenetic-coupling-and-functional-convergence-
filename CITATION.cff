@@ -1,0 +1,63 @@
+cff-version: 1.2.0
+
+message: "If you use these datasets, scripts, or workflows, please cite this repository and the associated manuscript."
+
+title: "Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease: datasets and reproducible workflows"
+
+authors:
+  - family-names: Gonzales-Zubiate
+    given-names: Fernando A.
+
+  - family-names: Ramos-Sanchez
+    given-names: Eduardo M.
+
+  - family-names: Asanza-Sanmartin
+    given-names: Damaris
+
+  - family-names: Solorzano-Toala
+    given-names: Enrique A.
+
+version: 1.0.0
+
+date-released: 2026-06-22
+
+repository-code: "https://github.com/Lisania344/microRNA-548-family"
+
+license: MIT
+
+keywords:
+  - miR-548
+  - microRNA
+  - phylogenetics
+  - systems biology
+  - disease association
+  - functional convergence
+  - sequence-function coupling
+  - evolutionary biology
+
+abstract: >
+  This repository contains datasets, processed matrices,
+  phylogenetic resources, analysis scripts,
+  and figure-generation workflows associated with
+  the study of evolutionary divergence and
+  disease-associated functional organization
+  in the human miR-548 family.
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Gonzales-Zubiate
+      given-names: Fernando A.
+
+    - family-names: Ramos-Sanchez
+      given-names: Eduardo M.
+
+    - family-names: Asanza-Sanmartin
+      given-names: Damaris
+
+    - family-names: Solorzano-Toala
+      given-names: Enrique A.
+
+  title: "Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease"
+
+  status: submitted

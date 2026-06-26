@@ -1,0 +1,46 @@
+name: mir548-systems-analysis
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core Python
+  - python=3.12
+
+  # Data manipulation
+  - numpy
+  - pandas
+
+  # Statistics
+  - scipy
+
+  # Visualization
+  - matplotlib
+  - seaborn
+
+  # Network analysis
+  - networkx
+
+  # Machine learning and clustering
+  - scikit-learn
+
+  # Bioinformatics
+  - biopython
+
+  # Excel support
+  - openpyxl
+
+  # Jupyter ecosystem
+  - jupyter
+  - notebook
+
+  # Utilities
+  - pyyaml
+
+  # Pip dependencies
+  - pip
+
+  - pip:
+      - umap-learn
+      - upsetplot
