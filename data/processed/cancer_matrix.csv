@@ -1,0 +1,11 @@
+miRNA,Breast cancer,Colorectal cancer,Esophageal squamous cell carcinoma,Glioma,Medulloblastoma,Melanoma,Multiple myeloma,Osteosarcoma,Rectal cancer,Small-cell lung carcinoma
+hsa-miR-548ah-5p,0,0,0,0,0,0,0,0,0,1
+hsa-miR-548b-3p,0,0,0,0,0,1,0,0,0,0
+hsa-miR-548c-3p,0,0,0,0,0,0,0,1,0,0
+hsa-miR-548c-5p,0,0,0,0,0,0,0,0,1,0
+hsa-miR-548d-3p,0,0,0,0,1,0,0,0,0,0
+hsa-miR-548g-3p,0,0,1,0,0,0,0,0,0,0
+hsa-miR-548i,0,1,0,0,0,0,0,0,0,0
+hsa-miR-548k,1,0,0,0,0,0,0,0,0,0
+hsa-miR-548m,0,0,0,1,0,0,0,0,0,0
+hsa-miR-548q,0,0,0,0,0,0,1,0,0,0
