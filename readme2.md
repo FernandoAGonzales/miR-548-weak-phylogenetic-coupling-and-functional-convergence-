@@ -79,11 +79,36 @@ results/phylogeny/
 
 These files were generated programmatically from the curated master association table.
 
-### Disease Matrices
+**Directory**
+
+- binary_disease_matrix.csv
+
+- autoimmune_matrix.csv
+
+- infectious_and_inflammatory_matrix.csv
+
+- cancer_matrix.csv
+
+- sequence_distance_matrix.csv
+
+- functional_distance_matrix.csv
+
+- cluster_assignments.csv
+
+- network_metrics.csv
+
+- upset_intersections.csv
+
+- umap_coordinates.csv
+
+- mantel_statistics.csv
+
+- mantel_null_distribution.csv
+
+### Disease-specific Matrices
 
 | File | Description |
 |------|-------------|
-| `binary_disease_matrix.csv` | Binary disease-category matrix used throughout the analyses. |
 | `autoimmune_matrix.csv` | Autoimmune disease matrix. |
 | `infectious_and_inflammatory_matrix.csv` | Infectious and inflammatory disease matrix. |
 | `cancer_matrix.csv` | Cancer disease matrix. |
@@ -101,6 +126,50 @@ Disease categories:
 |------|-------------|
 | `sequence_distance_matrix.csv` | Pairwise mature-sequence distances. |
 | `functional_distance_matrix.csv` | Pairwise Jaccard functional distances. |
+
+### Clustering and Embedding Outputs
+
+| File | Description |
+|------|-------------|
+| `cluster_assignments.csv` | Cluster assignments generated from hierarchical clustering. |
+| `umap_coordinates.csv` | Low-dimensional functional embedding coordinates used in Figure 7E. |
+
+## Analysis Overview
+
+### Network Analyses
+network_metrics.csv
+Node-level statistics calculated from the bipartite miRNA–disease category network, including:
+
+- Degree
+- Degree centrality
+- Betweenness centrality
+- Closeness centrality
+- Eigenvector centrality
+
+upset_intersections.csv
+Disease-category overlap statistics used for UpSet analysis (Figure 7C).
+
+### Sequence–Function Correlation Analyses
+
+| File | Description |
+|------|-------------|
+| `mantel_statistics.csv` | Summary statistics for sequence–function coupling analyses. |
+| `mantel_null_distribution.csv` | Null distribution generated through permutation testing. |
+
+### Phylogenetic Resources and Reconstruction
+
+The analyses performed in this study include:
+
+- Maximum Likelihood phylogenetic reconstruction using MEGA v12.1.
+- Model selection based on information-theoretic criteria.
+- Disease-association matrix construction.
+- Hierarchical clustering.
+- Bipartite network analysis.
+- UpSet overlap analysis.
+- Sequence–function correlation analysis.
+- Functional embedding using UMAP.
+
+The corresponding datasets and outputs are available throughout this repository.
 
 ## Figure 6 Workflow
 
@@ -200,3 +269,19 @@ Phylogenetic relatedness explains only a limited fraction of the observed functi
 Functional embedding generated from disease-association profiles.
 
 The low-dimensional representation demonstrates extensive mixing of phylogenetically distant miR-548 members within a shared functional space, consistent with widespread functional convergence.
+
+## Data Availability
+
+All raw datasets, sequence alignments, phylogenetic resources, processed matrices, analysis outputs, and figure source data are available in this repository and archived through Zenodo.
+
+## Citation
+
+If you use these datasets, analyses, or workflows, please cite:
+
+> Gonzales-Zubiate FA, Ramos-Sanchez EM, Asanza-Sanmartin D, Solorzano-Toala EA, *et al.*
+> *Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease.*
+
+## License
+
+This repository is distributed under the **MIT License**.
+See the `LICENSE` file for details.
