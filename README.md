@@ -1,677 +1,287 @@
-#### **Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease**
+# Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease
 
-#### 
-
-###### **Overview**
-
-
+## Overview
 
 This repository contains the datasets, phylogenetic resources, processed matrices, statistical analyses, and figure-generation workflows associated with the manuscript:
 
-
-
-**Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease**
-
-
+> **Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease**
 
 The study investigates the relationship between sequence diversification, phylogenetic structure, and disease-associated functional organization across the human miR-548 family through integrative evolutionary and systems-level analyses.
 
+---
 
+## Repository Contents
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Raw Data
+- Phylogenetic Resources
+- Processed Data
+- Figure 6 Workflow
+- Figure 7 Workflow
+- Software Environment
+- Reproducibility
+- Data Availability
+- Citation
+- License
 
-###### 
+---
 
-###### **Repository Contents**
+## Repository Structure
 
-###### 
+```text
+.
+├── data
+│   ├── raw
+│   └── processed
+├── results
+│   └── phylogeny
+├── scripts
+│   ├── scripts-for-figure-6
+│   └── scripts-for-figure-7
+├── CITATION
+├── LICENSE
+├── environment.yml
+├── requirements.txt
+└── README.md
+```
 
-###### **Raw Data**
+## Raw Data
 
-###### 
+**Directory**
 
-###### **Directory structure**
-
-
-
+```text
 data/raw/
+```
 
-•	mature\_miR548\_alignment.fas
+| File | Description |
+|------|-------------|
+| `mature_miR548_alignment.fas` | Multiple sequence alignment of mature hsa-miR-548 family members used for phylogenetic reconstruction. |
+| `master_curated_miR548_disease_associations.xlsx` | Unified manually curated disease-association dataset used as the primary source for downstream analyses. |
+| `Supplementary_Table_S1_Autoimmune.xlsx` | Curated autoimmune disease associations. |
+| `Supplementary_Table_S2_Infectious_Inflammatory.xlsx` | Curated infectious and inflammatory disease associations. |
+| `Supplementary_Table_S3_Cancer.xlsx` | Curated cancer disease associations. |
+| `Supplementary_Table_S4_Mature_Sequences.xlsx` | Curated mature hsa-miR-548 sequences. |
 
-•	master\_curated\_miR548\_disease\_associations.xlsx
+## Phylogenetic Resources
 
-•	Supplementary\_Table\_S1\_Autoimmune.xlsx
+**Directory**
 
-•	Supplementary\_Table\_S2\_Infectious\_Inflammatory.xlsx
-
-•	Supplementary\_Table\_S3\_Cancer.xlsx
-
-•	Supplementary\_Table\_S4\_Mature\_Sequences.xlsx
-
-
-
-**Description**
-
-
-
-**mature\_miR548\_alignment.fas**
-
-
-
-Multiple sequence alignment of mature hsa-miR-548 family members used for phylogenetic reconstruction.
-
-
-
-**master\_curated\_miR548\_disease\_associations.xlsx**
-
-
-
-Unified manually curated literature-derived disease association dataset used as the primary source for all downstream analyses.
-
-
-
-**Supplementary Tables S1–S3**
-
-
-
-Disease-specific curated datasets.
-
-
-
-**Supplementary Table S4**
-
-
-
-Curated mature hsa-miR-548 sequences.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-
-
-###### **Phylogenetic Resources**
-
-
-
-###### **Directory structure**
-
-
-
+```text
 results/phylogeny/
+```
 
-•	phylogenetic\_tree\_ML.nwk
+| File | Description |
+|------|-------------|
+| `phylogenetic_tree_ML.nwk` | Maximum Likelihood phylogenetic tree used in Figure 5. |
+| `miR548_phylogeny.mtsx` | Original MEGA v12.1 project containing reconstruction settings and metadata. |
+| `model_selection_results.csv` | Model-selection statistics used to identify the optimal substitution model. |
 
-•	miR548\_phylogeny.mtsx
-
-•	model\_selection\_results.csv
-
-
-
-**Description**
-
-
-
-**phylogenetic\_tree\_ML.nwk**
-
-
-
-Maximum Likelihood phylogenetic tree used in Figure 5.
-
-
-
-**miR548\_phylogeny.mtsx**
-
-
-
-Original MEGA v12.1 project/session file containing phylogenetic reconstruction settings and metadata.
-
-
-
-**model\_selection\_results.csv**
-
-
-
-Model-selection statistics used to identify the optimal substitution model.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-
-
-###### **Processed Data**
-
-###### 
-
-###### **Directory structure**
-
-
-
-data/processed/
-
-•	binary\_disease\_matrix.csv
-
-•	autoimmune\_matrix.csv
-
-•	infectious\_and\_inflammatory\_matrix.csv
-
-•	cancer\_matrix.csv
-
-•	sequence\_distance\_matrix.csv
-
-•	functional\_distance\_matrix.csv
-
-•	cluster\_assignments.csv
-
-•	network\_metrics.csv
-
-•	upset\_intersections.csv
-
-•	umap\_coordinates.csv
-
-•	mantel\_statistics.csv
-
-•	mantel\_null\_distribution.csv
-
-
-
-**Description**
+## Processed Data
 
 These files were generated programmatically from the curated master association table.
 
+**Directory**
 
+- binary_disease_matrix.csv
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- autoimmune_matrix.csv
 
+- infectious_and_inflammatory_matrix.csv
 
+- cancer_matrix.csv
 
-###### **Disease Matrices**
+- sequence_distance_matrix.csv
 
+- functional_distance_matrix.csv
 
+- cluster_assignments.csv
 
-**binary\_disease\_matrix.csv**
+- network_metrics.csv
 
+- upset_intersections.csv
 
+- umap_coordinates.csv
 
-Binary disease-category matrix used throughout the systems-level analyses.
+- mantel_statistics.csv
 
+- mantel_null_distribution.csv
 
+### Disease-specific Matrices
 
-**Categories**
+| File | Description |
+|------|-------------|
+| `autoimmune_matrix.csv` | Autoimmune disease matrix. |
+| `infectious_and_inflammatory_matrix.csv` | Infectious and inflammatory disease matrix. |
+| `cancer_matrix.csv` | Cancer disease matrix. |
 
-•	Cancer
+Disease categories:
 
-•	Infectious diseases
+- Cancer
+- Infectious diseases
+- Autoimmune diseases
+- Inflammatory diseases
 
-•	Autoimmune diseases
+### Distance Matrices
 
-•	Inflammatory diseases
+| File | Description |
+|------|-------------|
+| `sequence_distance_matrix.csv` | Pairwise mature-sequence distances. |
+| `functional_distance_matrix.csv` | Pairwise Jaccard functional distances. |
 
+### Clustering and Embedding Outputs
 
+| File | Description |
+|------|-------------|
+| `cluster_assignments.csv` | Cluster assignments generated from hierarchical clustering. |
+| `umap_coordinates.csv` | Low-dimensional functional embedding coordinates used in Figure 7E. |
 
-**Disease-specific matrices**
+## Analysis Overview
 
-•	autoimmune\_matrix.csv
-
-•	infectious\_and\_inflammatory\_matrix.csv
-
-•	cancer\_matrix.csv
-
-
-
-These matrices were derived from the unified curated disease-association dataset.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Distance Matrices**
-
-
-
-**sequence\_distance\_matrix.csv**
-
-
-
-Pairwise mature-sequence distances among miR-548 family members.
-
-
-
-**functional\_distance\_matrix.csv**
-
-
-
-Pairwise functional distances calculated from disease-association profiles using Jaccard distance.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Clustering and Embedding Outputs**
-
-
-
-**cluster\_assignments.csv**
-
-
-
-Cluster assignments generated from hierarchical clustering.
-
-
-
-**umap\_coordinates.csv**
-
-
-
-Low-dimensional functional embedding coordinates used in Figure 7E.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Network Analyses**
-
-
-
-**network\_metrics.csv**
-
-
-
+### Network Analyses
+network_metrics.csv
 Node-level statistics calculated from the bipartite miRNA–disease category network, including:
 
-•	Degree
+- Degree
+- Degree centrality
+- Betweenness centrality
+- Closeness centrality
+- Eigenvector centrality
 
-•	Degree centrality
-
-•	Betweenness centrality
-
-•	Closeness centrality
-
-•	Eigenvector centrality
-
-
-
-**upset\_intersections.csv**
-
-
-
+upset_intersections.csv
 Disease-category overlap statistics used for UpSet analysis (Figure 7C).
 
+### Sequence–Function Correlation Analyses
 
+| File | Description |
+|------|-------------|
+| `mantel_statistics.csv` | Summary statistics for sequence–function coupling analyses. |
+| `mantel_null_distribution.csv` | Null distribution generated through permutation testing. |
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+### Phylogenetic Resources and Reconstruction
 
+The analyses performed in this study include:
 
+- Maximum Likelihood phylogenetic reconstruction using MEGA v12.1.
+- Model selection based on information-theoretic criteria.
+- Disease-association matrix construction.
+- Hierarchical clustering.
+- Bipartite network analysis.
+- UpSet overlap analysis.
+- Sequence–function correlation analysis.
+- Functional embedding using UMAP.
 
-###### **Sequence–Function Correlation Analyses**
+The corresponding datasets and outputs are available throughout this repository.
 
+## Figure 6 Workflow
 
+### Figure 6A – Entropy analysis of miR-548-3p strand alignments
 
-**mantel\_statistics.csv**
+- Shannon entropy (H) calculated for each nucleotide position.
 
+### Figure 6B – Entropy analysis of miR-548-5p strand alignments
 
+- Shannon entropy (H) calculated for each nucleotide position.
+- Entropy distribution by functional region (seed and non-seed regions; α = 0.05).
 
-Summary statistics for sequence–function coupling analyses.
+## Software Environment
 
+| Component | Version |
+|-----------|---------|
+| Python | 3.12 |
+| MEGA | 12.1 |
 
+### Primary Packages
 
-**mantel\_null\_distribution.csv**
+- NumPy
+- pandas
+- SciPy
+- NetworkX
+- scikit-learn
+- UMAP-learn
+- matplotlib
+- Biopython
 
+### Reproducible Environments
 
+- `environment.yml`
+- `requirements.txt`
 
-Null distribution generated through permutation testing.
+## Figure 7 Workflow
 
+Figure 7 integrates complementary systems-level analyses to evaluate functional organization within the miR-548 family.
 
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Phylogenetic Resources and Reconstruction**
-
-
-
-Phylogenetic relationships among mature hsa-miR-548 family members were inferred using **Maximum Likelihood (ML)** analysis in **MEGA v12.1**.
-
-
-
-Model testing was performed using information-theoretic criteria.
-
-
-
-The **K2+G** substitution model was identified as the optimal evolutionary model and used for phylogenetic inference.
-
-
-
-**Files provided**
-
-•	mature\_miR548\_alignment.fas
-
-•	model\_selection\_results.csv
-
-•	phylogenetic\_tree\_ML.nwk
-
-•	miR548\_phylogeny.mtsx
-
-
-
-The deposited Newick file corresponds to the phylogenetic topology used in Figure 5 and all associated evolutionary analyses reported in the manuscript.
-
-
-
-The MEGA session file preserves the original phylogenetic reconstruction and allows regeneration of the phylogenetic tree directly within MEGA.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### Functional and Systems-Level Analyses
-
-
-
-Disease associations were manually curated from published studies and consolidated into a unified master dataset.
-
-
-
-All downstream analyses were generated programmatically from this curated dataset, including:
-
-•	Disease-category matrices
-
-•	Hierarchical clustering
-
-•	Network reconstruction
-
-•	Overlap analyses
-
-•	Sequence–function correlation analyses
-
-•	Dimensionality-reduction embeddings
-
-
-
-This workflow ensures consistency across all supplementary datasets and manuscript figures.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-##### Figure 6. Entropy-based variability analysis of microRNA alignments
-
-Figure 6 analyzes sequence variability across aligned miR-548 family members.
-
-**Figure 6A – Entropy analysis of miR-548-3p strand alignments**
-
-**Figure 6B – Entropy analysis of miR-548-5p strand alignments**
-
-• Shannon entropy (H) calculated for each nucleotide position.
-
-• Entropy distribution by functional region (seed and non-seed regions), α = 0.05.
-
-
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Figure 7 Workflow**
-
-
-
-Figure 7 integrates multiple complementary systems-level analyses.
-
-
-
-**Figure 7A – Functional Clustering**
-
-
+### Figure 7A – Functional Clustering
 
 Hierarchical clustering of miR-548 members based on disease-association profiles using:
 
-•	Jaccard distance
+- Jaccard distance
+- Average-linkage clustering
 
-•	Average-linkage clustering
+---
 
-
-
-**Figure 7B – Bipartite Network Analysis**
-
-
+### Figure 7B – Bipartite Network Analysis
 
 Bipartite miRNA–disease category network.
 
+- Node size is proportional to degree centrality.
 
+---
 
-Node size is proportional to degree centrality.
-
-
-
-**Figure 7C – Disease Category Overlap**
-
-
+### Figure 7C – Disease Category Overlap
 
 UpSet analysis quantifying overlap among:
 
-•	Cancer
+- Cancer
+- Infectious diseases
+- Autoimmune diseases
+- Inflammatory diseases
 
-•	Infectious diseases
+---
 
-•	Autoimmune diseases
-
-•	Inflammatory diseases
-
-
-
-**Figure 7D – Sequence–Function Coupling Analysis**
-
-
+### Figure 7D – Sequence–Function Coupling Analysis
 
 Sequence–function coupling analysis using a Mantel-style matrix correlation.
 
+#### Workflow
 
+1. Calculate pairwise mature-sequence distances.
+2. Calculate Jaccard functional distances from binary disease profiles.
+3. Convert matrices to upper-triangular vectors.
+4. Calculate Spearman rank correlation.
+5. Assess significance through permutation testing.
 
-**Workflow**
+#### Results
 
-1\.	Calculate pairwise mature-sequence distances.
+| Metric | Value |
+|---------|------:|
+| Spearman correlation (R) | 0.07 |
+| Permutation *p*-value | 0.020 |
+| Pairwise comparisons | 1,225 |
+| Permutations | 5,000 |
 
-2\.	Calculate Jaccard functional distances from binary disease profiles.
-
-3\.	Convert matrices to upper-triangular vectors.
-
-4\.	Calculate Spearman rank correlation.
-
-5\.	Assess significance through permutation testing.
-
-
-
-**Final reported result**
-
-•	Spearman R = 0.07
-
-•	Permutation p = 0.020
-
-•	Pairwise comparisons = 1,225
-
-•	Permutations = 5,000
-
-
-
-**Interpretation**
-
-
+#### Interpretation
 
 Phylogenetic relatedness explains only a limited fraction of the observed functional organization within the miR-548 family.
 
+---
 
-
-**Figure 7E – Functional Embedding**
-
-
+### Figure 7E – Functional Embedding
 
 Functional embedding generated from disease-association profiles.
 
+The low-dimensional representation demonstrates extensive mixing of phylogenetically distant miR-548 members within a shared functional space, consistent with widespread functional convergence.
 
+## Data Availability
 
-Low-dimensional representation demonstrates extensive mixing of phylogenetically distant miR-548 members within shared functional space, consistent with widespread functional convergence.
+All raw datasets, sequence alignments, phylogenetic resources, processed matrices, analysis outputs, and figure source data are available in this repository and archived through Zenodo.
 
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Software Environment**
-
-
-
-All analyses were implemented using:
-
-
-
-**Python 3.12**
-
-
-
-**Primary packages**
-
-•	NumPy
-
-•	pandas
-
-•	SciPy
-
-•	NetworkX
-
-•	scikit-learn
-
-•	UMAP-learn
-
-•	matplotlib
-
-•	Biopython
-
-
-
-**Reproducible environments**
-
-•	environment.yml
-
-•	requirements.txt
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Reproducibility**
-
-
-
-This repository contains all datasets and analysis outputs required to reproduce the principal findings reported in the manuscript.
-
-
-
-**Included resources**
-
-•	Mature miR-548 sequence datasets
-
-•	Sequence alignments
-
-•	Phylogenetic reconstruction files
-
-•	Model-selection outputs
-
-•	Curated disease-association datasets
-
-•	Disease-category matrices
-
-•	Clustering outputs
-
-•	Network analyses
-
-•	Overlap analyses
-
-•	Sequence–function correlation analyses
-
-•	Dimensionality-reduction embeddings
-
-•	Source data underlying manuscript figures
-
-
-
-Together, these resources enable independent verification of the evolutionary, functional, and systems-level analyses presented in the study.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Data Availability**
-
-
-
-All sequence datasets, alignments, phylogenetic resources, processed matrices, and analysis outputs are available through this repository and archived through Zenodo.
-
-
-
-The repository includes:
-
-•	phylogenetic\_tree\_ML.nwk
-
-•	miR548\_phylogeny.mtsx
-
-
-
-which correspond to the original phylogenetic reconstruction used in the manuscript.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **Citation**
-
-
+## Citation
 
 If you use these datasets, analyses, or workflows, please cite:
 
-Gonzales-Zubiate FA, Ramos-Sanchez EM, Asanza-Sanmartin D, Solorzano-Toala EA, et al.
+> Gonzales-Zubiate FA, Ramos-Sanchez EM, Asanza-Sanmartin D, Solorzano-Toala EA, *et al.*
+> *Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease.*
 
-
-
-Functional convergence of the miR-548 family reveals weak coupling between evolution and regulatory roles in human disease.
-
-
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-
-
-###### **License**
-
-
+## License
 
 This repository is distributed under the **MIT License**.
-
-
-
-See **LICENSE** for details.
+See the `LICENSE` file for details.
